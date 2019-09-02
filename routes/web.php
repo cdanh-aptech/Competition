@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('trangchu', function () {
+    return view('pages/trangchu');
+});

@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('sua', 'ContestController@getSua');
 
         Route::get('them', 'ContestController@getThem');
+        Route::post('them', 'ContestController@postThem');
     });
     // ban to chuc
     Route::group(['prefix' => 'bantochuc'], function () {
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('sua', 'BanToChucController@getSua');
 
         Route::get('them', 'BanToChucController@getThem');
+        
     });
     // giam khao
     Route::group(['prefix' => 'giamkhao'], function () {
@@ -70,6 +72,11 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('them', 'TacPhamController@getThem');
     });
+
+    Route::group(['prefix' => 'ajax'], function () {
+        Route::get('contest/{id}', 'AjaxController@getContest');
+    });
+
 });
 
 
@@ -79,7 +86,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Test admin
 Route::get('test', function(){
-    return view('admin.contest.sua');
+    return view('admin.contest.danhsach');
 });
 
 // Test trang chu

@@ -1640,6 +1640,11 @@ figure {
     box-shadow: none;
 }
 
+.col-lg-12 textarea {
+    padding-bottom: 3rem;
+    text-align: left;
+}
+
 #qbootstrap-footer .form-group #btn-submit {
     background: #34b8c0;
     color: #fff;

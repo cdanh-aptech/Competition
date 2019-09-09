@@ -13,44 +13,86 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Thống kê</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Cuộc thi<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Category</a>
+                        <a href="admin/contest/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Add Category</a>
+                        <a href="admin/contest/them">Thêm mới</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Ban tổ chức<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="admin/contest/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="admin/contest/them">Thêm mới</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Giám khảo<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List User</a>
+                        <a href="admin/contest/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Add User</a>
+                        <a href="admin/contest/them">Thêm mới</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
+            <li>
+                <a href="#"><i class="fa fa-cube fa-fw"></i> Tác phẩm<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Danh sách</a>
+                    </li>
+                    <li>
+                        <a href="#">Thêm mới</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i> Tác giả<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Danh sách</a>
+                    </li>
+                    <li>
+                        <a href="#">Thêm mới</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-dollar fa-fw"></i> Kết quả<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/contest/danhsach">Danh sách</a>
+                    </li>
+                    <li>
+                        <a href="admin/contest/them">Thêm mới</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

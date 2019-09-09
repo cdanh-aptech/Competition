@@ -43,7 +43,7 @@
 			   		</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(images/HG_201971673428.jpg);">
+		   	<li style="background-image: url(images/HG_201971673421.jpg);">
 		   		<div class="overlay"></div>
 		   		<div class="container">
 		   			<div class="row">

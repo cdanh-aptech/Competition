@@ -22,32 +22,68 @@
                                 @endforeach
                             </select>
                     </div>
-                    <div class="col-lg-2">
-                        <i class="fa fa-pencil fa-fw"></i> <a href="#">Sửa</a>
-                    </div>
-                    <div class="col-lg-2">
-                        <i class="fa fa-trash-o  fa-fw"></i><a href="#">Xóa</a>
-                    </div>
+                    
+                    
+
                 </div>
 
             {{-- @foreach($contest as $ct) --}}
                 {{-- @if($ct->id > 0) --}}
                     <div class="col-lg-12" id="idView">
-                        <div class="col-lg-3">
-                            {{-- <p><b><u>Trạng thái: </u></b></p>  --}}
-                            {{-- {{$ct->Active}} --}}
+                        
+                        
+
+                        <div class="col-lg-12" style="padding-bottom:20px">
+                            <div class="col-lg-3">
+                                {{-- <p><b><u>Trạng thái: </u></b></p>  --}}
+                                {{-- {{$ct->Active}} --}}
+                            </div>
+                            <div class="col-lg-2">
+                                {{-- <p><b><u>Ngày bắt đầu: </u></b></p>  --}}
+                                {{-- {{$ct->Date_begin}} --}}
+                            </div>
+                            <div class="col-lg-2">
+                                {{-- <p><b><u>Ngày kết thúc: </u></b></p>  --}}
+                                {{-- {{$ct->Date_end}} --}}
+                            </div>
+                            <div class="col-lg-2">
+                                {{-- <p><b><u>Ngày kết quả: </u></b></p>  --}}
+                                {{-- {{$ct->Date_result}} --}}
+                            </div>
                         </div>
-                        <div class="col-lg-3">
-                            {{-- <p><b><u>Ngày bắt đầu: </u></b></p>  --}}
-                            {{-- {{$ct->Date_begin}} --}}
-                        </div>
-                        <div class="col-lg-3">
-                            {{-- <p><b><u>Ngày kết thúc: </u></b></p>  --}}
-                            {{-- {{$ct->Date_end}} --}}
-                        </div>
-                        <div class="col-lg-3">
-                            {{-- <p><b><u>Ngày kết quả: </u></b></p>  --}}
-                            {{-- {{$ct->Date_result}} --}}
+
+                        <div class="col-lg-12" style="padding-top:20px">
+                            <div class="col-lg-3" style="padding-top:20px">
+                                {{-- <i class="fa fa-pencil fa-fw"></i> --}}
+                                {{-- <a href="admin/contest/sua/">Sửa</a> --}}
+                            </div>
+                            <div class="col-lg-3" style="padding-bottom:20px">
+                                {{-- <i class="fa fa-trash-o  fa-fw"></i> --}}
+                                {{-- <a href="admin/contest/xoa/">Xóa</a> --}}
+                            
+                            <!-- Button trigger modal -->
+                            <!-- Modal -->
+                                <div class="modal fade" id="modal-Delete">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modal-Delete">Lưu ý</h5>
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Bạn có chắc chắn xóa không?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bỏ qua</button>
+                                                <button type="button" class="btn btn-danger"> Xóa </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal -->
+                            </div>
+                                                                   
                         </div>
 
                         <div class="col-lg-12">

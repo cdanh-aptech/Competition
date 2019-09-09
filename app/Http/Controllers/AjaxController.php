@@ -14,6 +14,8 @@ class AjaxController extends Controller
 
         foreach($contest as $ct)
         {
+            
+
             $Date_begin = date('d/m/Y', strtotime($ct->Date_begin));
             $Date_end = date('d/m/Y', strtotime($ct->Date_end));
             $Date_result = date('d/m/Y', strtotime($ct->Date_result));
@@ -27,6 +29,12 @@ class AjaxController extends Controller
             echo "<div class='col-lg-3'> <p><b><u>Ngày kết thúc: </u></b></p>".$Date_end."</div>";
             echo "<div class='col-lg-3'> <p><b><u>Ngày kết quả: </u></b></p>".$Date_result."</div>";
             
+            echo "<i class='fa fa-pencil fa-fw'></i><a href='admin/contest/sua/".$ct->id."'>Sửa</a>";
+            echo "<i class='fa fa-trash-o  fa-fw'></i><a href='admin/contest/xoa/".$ct->id."'>Xóa</a>";
+
+           
+            // echo "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal-Delete'><i class='fa fa-trash-o fa-fw'></i>Xóa</button>";
+
             echo"<div class='col-lg-12'> <b><u>Nội dung:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='NoiDung' rows='5' readonly>".$ct->Noidung."</textarea>";
 

@@ -26,7 +26,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'contest'], function () {
         Route::get('danhsach', 'ContestController@getDanhSach');
 
-        Route::get('sua', 'ContestController@getSua');
+        Route::get('sua/{id}', 'ContestController@getSua');
+        Route::post('sua/{id}', 'ContestController@postSua');
+
+        Route::get('xoa/{id}', 'ContestController@getXoa');
 
         Route::get('them', 'ContestController@getThem');
         Route::post('them', 'ContestController@postThem');
@@ -38,6 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('sua', 'BanToChucController@getSua');
 
         Route::get('them', 'BanToChucController@getThem');
+        Route::post('them', 'BanToChucController@postThem');
         
     });
     // giam khao

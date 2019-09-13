@@ -6,41 +6,63 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">User
-                    <small>Edit</small>
+                <h1 class="page-header">Cập nhật USER :
+                <small>{{$user->Ten}}</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="" method="POST">
+                @include('errors/errors')
+            <form action="admin/user/sua/{{$user->id}}" method="POST">
                     <div class="form-group">
-                        <label>Username</label>
-                        <input class="form-control" name="txtUser" value="quoctuan" disabled />
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="txtPass" placeholder="Please Enter Password" />
-                    </div>
-                    <div class="form-group">
-                        <label>RePassword</label>
-                        <input type="password" class="form-control" name="txtRePass" placeholder="Please Enter RePassword" />
+                        <label>Họ và Tên</label>
+                        <input class="form-control" name="txt_Ten" placeholder="Nhập Họ và Tên"
+                            value="{{$user->Ten}}" 
+                        />
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
+                        <input type="email" class="form-control" name="txt_Email" placeholder="Nhập Email để đăng nhập" 
+                            value="{{$user->email}}" readonly
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" name="chk_Password" id="chk_Password" />
+                        <label>Đổi Mật khẩu</label>
+                        <input type="password" class="form-control password" name="txt_Password" placeholder="Nhập Mật khẩu để đăng nhập" disabled />
                     </div>
                     <div class="form-group">
-                        <label>User Level</label>
+                        <input type="password" class="form-control password" name="txt_RePassword" placeholder="Nhập lại Mật khẩu" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input class="form-control" name="txt_DiaChi" placeholder="Nhập Địa chỉ liên hệ" 
+                            value="{{$user->Diachi}}"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Quyền</label>
                         <label class="radio-inline">
-                            <input name="rdoLevel" value="1" checked="" type="radio">Admin
+                            <input name="Level" value="0" 
+                            @if ($user->quyen == 0)
+                                {{"checked"}}
+                            @endif
+                             type="radio">Tác giả
                         </label>
                         <label class="radio-inline">
-                            <input name="rdoLevel" value="2" type="radio">Member
+                            <input name="Level" value="1" 
+                            @if ($user->quyen == 1)
+                                {{"checked"}}
+                            @endif
+                            type="radio">Admin
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-default">User Edit</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
-                <form>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    <button type="reset" class="btn btn-light">Làm lại</button>
+                    {{csrf_field()}}
+                </form>
             </div>
         </div>
         <!-- /.row -->
@@ -48,4 +70,21 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $("#chk_Password").change(function(){
+                if($(this).is(":checked"))
+                {
+                    $(".password").removeAttr('disabled');
+                }
+                else
+                {
+                    $(".password").attr('disabled','');
+                }
+            });
+        });
+    </script>
 @endsection

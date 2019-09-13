@@ -16,7 +16,12 @@
                 <form action="admin/bantochuc/them" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label><u>Thành phần Ban Tổ Chức:</u></label>
-                        <textarea class="form-control" name="txt_ThanhPhan" placeholder="Nhập Thành phần Ban Tổ Chức" rows="5"></textarea>
+                        <textarea class="form-control" name="txt_ThanhPhanBTC" placeholder="Nhập Thành phần Ban Tổ Chức" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                            <label><u>Thành phần Giám Khảo:</u></label>
+                            <textarea class="form-control" name="txt_ThanhPhanGK" placeholder="Nhập Thành phần Ban Tổ Chức" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">

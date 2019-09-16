@@ -94,11 +94,18 @@
                             {{-- </textarea> --}}
                         
                         <div class="col-lg-12">
-                            {{-- <b><u>Quy định:</u></b> --}}
-                            {{-- <textarea class="col-lg-12" name="QuyDinh" rows="5" readonly> --}}
-                                    {{-- {{$ct->Quydinh}} --}}
+                            {{-- <b><u>Thể lệ:</u></b> --}}
+                            {{-- <textarea class="col-lg-12" name="TheLe" rows="5" readonly> --}}
+                                    {{-- {{$ct->Thele}} --}}
                             {{-- </textarea> --}}
                         </div>
+
+                        <div class="col-lg-12">
+                                {{-- <b><u>Thể lệ tóm tắt:</u></b> --}}
+                                {{-- <textarea class="col-lg-12" name="TheLe_tomtat" rows="5" readonly> --}}
+                                        {{-- {{$ct->Thele_tomtat}} --}}
+                                {{-- </textarea> --}}
+                            </div>
 
                         <div class="col-lg-12">
                             {{-- <b><u>Quy cách:</u></b> --}}

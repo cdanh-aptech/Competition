@@ -32,7 +32,7 @@
                 <div class="col-lg-12" id="idSua">
                     <div class="col-lg-3">
                         <p><b><u>Trạng thái: </u></b></p> 
-                        <select class="form-control" name="Active" id="Active">
+                        <select class="form-control" name="sel_Active" id="Active">
                             <option value="0">Không hoạt động</option>
                             <option value="1" <?php if ($contest->Active == 1) echo 'selected' ?> >Đang hoạt động</option>
                         </select>
@@ -52,32 +52,37 @@
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Nội dung:</u></b>
-                        <textarea class="col-lg-12" name="txt_NoiDung" rows="5">{{$contest->Noidung}}</textarea>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_NoiDung" rows="5">{{$contest->Noidung}}</textarea>
                     </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
-                        <b><u>Quy định:</u></b>
-                        <textarea class="col-lg-12" name="txt_QuyDinh" rows="5">{{$contest->Quydinh}}</textarea>
+                        <b><u>Thể lệ:</u></b>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe" rows="5">{{$contest->Thele}}</textarea>
                     </div>
+
+                    <div class="col-lg-12" style="padding-bottom:20px">
+                            <b><u>Thể lệ tóm tắt:</u></b>
+                            <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe_tomtat" rows="5">{{$contest->Thele_tomtat}}</textarea>
+                        </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Quy cách:</u></b>
-                        <textarea class="col-lg-12" name="txt_QuyCach" rows="5">{{$contest->Quycach}}</textarea>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_QuyCach" rows="5">{{$contest->Quycach}}</textarea>
                     </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Phương thức:</u></b>
-                        <textarea class="col-lg-12" name="txt_PhuongThuc" rows="5">{{$contest->Phuongthuc}}</textarea>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_PhuongThuc" rows="5">{{$contest->Phuongthuc}}</textarea>
                     </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Đối tượng:</u></b>
-                        <textarea class="col-lg-12" name="txt_DoiTuong" rows="5">{{$contest->Doituong}}</textarea>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_DoiTuong" rows="5">{{$contest->Doituong}}</textarea>
                     </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Giải thưởng:</u></b>
-                        <textarea class="col-lg-12" name="txt_GiaiThuong" rows="5">{{$contest->Giaithuong}}</textarea>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_GiaiThuong" rows="5">{{$contest->Giaithuong}}</textarea>
                     </div>
                 </div>
                 <div class="col-lg-12" style="padding-top:10px;">

@@ -42,6 +42,19 @@
             </li>
 
             <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Slide<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="admin/slide/danhsach">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="admin/slide/them">Thêm mới</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+            <li>
                 <a href="#"><i class="fa fa-cube fa-fw"></i> Tác phẩm<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>

@@ -17,6 +17,12 @@
                 <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
+            @php
+                if(Auth::check())
+                {
+                    $user_login = Auth::user();
+                }
+            @endphp
             @if(isset($user_login))
                 <li><i class="fa fa-user fa-fw"></i>{{$user_login->Ten}}
                 </li>

@@ -22,11 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Admin ----------------------------------------------
 Route::get('admin/dangnhap', 'UserController@getDangNhapAdmin');
 Route::post('admin/dangnhap', 'UserController@postDangNhapAdmin');
 Route::get('admin/logout', 'UserController@getDangXuatAdmin');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
     // contest
     Route::group(['prefix' => 'contest'], function () {
         Route::get('danhsach', 'ContestController@getDanhSach');
@@ -70,7 +71,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'result'], function () {
         Route::get('danhsach', 'ResultController@getDanhSach');
 
-        Route::get('sua', 'ResultController@getSua');
+        Route::get('sua/{id}', 'ResultController@getSua');
 
         Route::get('them', 'ResultController@getThem');
     });
@@ -78,15 +79,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'slide'], function () {
         Route::get('danhsach', 'SlideController@getDanhSach');
 
-        Route::get('sua', 'SlideController@getSua');
+        Route::get('sua/{id}', 'SlideController@getSua');
+        Route::post('sua/{id}', 'SlideController@postSua');
+
+        Route::get('xoa/{id}', 'SlideController@getXoa');
 
         Route::get('them', 'SlideController@getThem');
+        Route::post('them', 'SlideController@postThem');
     });
     // tac pham
     Route::group(['prefix' => 'tacpham'], function () {
-        Route::get('danhsach', 'TacPhamSlideController@getDanhSach');
+        Route::get('danhsach', 'TacPhamController@getDanhSach');
 
-        Route::get('sua', 'TacPhamController@getSua');
+        Route::get('sua/{id}', 'TacPhamController@getSua');
 
         Route::get('them', 'TacPhamController@getThem');
     });
@@ -98,16 +103,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+// Giao dien frontend ---------------------------------
+// Trang chu
+Route::get('trangchu', 'PagesController@getTrangChu');
 
-
-
-
-// Test admin
-Route::get('test', function(){
-    return view('admin.contest.danhsach');
-});
-
-// Test trang chu
-Route::get('trangchu', function () {
-    return view('pages/trangchu');
-});
+Route::get('dangnhap', 'PagesController@getDangNhap');
+Route::post('dangnhap', 'PagesController@postDangNhap');

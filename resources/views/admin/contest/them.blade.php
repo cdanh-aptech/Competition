@@ -37,27 +37,31 @@
                         </div>
                         <div class="form-group">
                                 <label><u>NỘI DUNG:</u></label>
-                                <textarea class="form-control" name="txt_NoiDung" placeholder="Nhập NỘI DUNG Cuộc Thi" rows="5"></textarea>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_NoiDung" placeholder="Nhập NỘI DUNG Cuộc Thi" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                                <label><u>QUY ĐỊNH:</u></label>
-                                <textarea class="form-control" name="txt_QuyDinh" placeholder="Nhập QUY ĐỊNH Cuộc Thi" rows="5"></textarea>
+                                <label><u>THỂ LỆ:</u></label>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_Thele" placeholder="Nhập THỂ LỆ Cuộc Thi" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                                <label><u>THỂ LỆ TÓM TẮT:</u></label>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_Thele_tomtat" placeholder="Nhập THỂ LỆ tóm tắt Cuộc Thi" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                                 <label><u>QUY CÁCH:</u></label>
-                                <textarea class="form-control" name="txt_QuyCach" placeholder="Nhập QUY CÁCH Cuộc Thi" rows="5"></textarea>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_QuyCach" placeholder="Nhập QUY CÁCH Cuộc Thi" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                                 <label><u>PHƯƠNG THỨC:</u></label>
-                                <textarea class="form-control" name="txt_PhuongThuc" placeholder="Nhập PHƯƠNG THỨC Cuộc Thi" rows="5"></textarea>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_PhuongThuc" placeholder="Nhập PHƯƠNG THỨC Cuộc Thi" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                                 <label><u>ĐỐI TƯỢNG:</u></label>
-                                <textarea class="form-control" name="txt_DoiTuong" placeholder="Nhập ĐỐI TƯỢNG Cuộc Thi" rows="5"></textarea>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_DoiTuong" placeholder="Nhập ĐỐI TƯỢNG Cuộc Thi" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                                 <label><u>GIẢI THƯỞNG:</u></label>
-                                <textarea class="form-control" name="txt_GiaiThuong" placeholder="Nhập GIẢI THƯỞNG Cuộc Thi" rows="5"></textarea>
+                                <textarea id="demo" class="form-control ckeditor" name="txt_GiaiThuong" placeholder="Nhập GIẢI THƯỞNG Cuộc Thi" rows="5"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Thêm mới</button>
                         <button type="reset" class="btn btn-light">Làm mới</button>

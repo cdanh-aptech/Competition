@@ -14,10 +14,6 @@ class Contest extends Model
         return $this->hasMany('App\BanToChuc','id_contest','id');
     }
 
-    public function giamkhao()
-    {
-        return $this->hasMany('App\GiamKhao','id_contest','id');
-    }
 
     public function slide()
     {

@@ -36,7 +36,8 @@ class ContestController extends Controller
                 'txt_Date_end' => 'required',
                 'txt_Date_result' => 'required',
                 'txt_NoiDung' => 'required|min:8',
-                'txt_QuyDinh' => 'required|min:8',
+                'txt_TheLe' => 'required|min:8',
+                'txt_TheLe_tomtat' => 'required|min:8',
                 'txt_QuyCach' => 'required|min:8',
                 'txt_PhuongThuc' => 'required|min:8',
                 'txt_DoiTuong' => 'required|min:8',
@@ -51,8 +52,10 @@ class ContestController extends Controller
                 'txt_Date_result.required' => 'Bạn chưa nhập NGÀY KẾT QUẢ',
                 'txt_NoiDung.required' => 'Bạn chưa nhập NỘI DUNG cuộc thi',
                 'txt_NoiDung.min' => 'NỘI DUNG cuộc thi tối thiểu 8 ký tự',
-                'txt_QuyDinh.required' => 'Bạn chưa nhập QUY ĐỊNH cuộc thi',
-                'txt_QuyDinh.min' => 'QUY ĐỊNH cuộc thi tối thiểu 8 ký tự',
+                'txt_TheLe.required' => 'Bạn chưa nhập THỂ LỆ cuộc thi',
+                'txt_TheLe.min' => 'THỂ LỆ cuộc thi tối thiểu 8 ký tự',
+                'txt_TheLe_tomtat.required' => 'Bạn chưa nhập THỂ LỆ TÓM TẮT cuộc thi',
+                'txt_TheLe_tomtat.min' => 'THỂ LỆ TÓM TẮT cuộc thi tối thiểu 8 ký tự',
                 'txt_QuyCach.required' => 'Bạn chưa nhập QUY CÁCH cuộc thi',
                 'txt_QuyCach.min' => 'QUY CÁCH cuộc thi tối thiểu 8 ký tự',
                 'txt_PhuongThuc.required' => 'Bạn chưa nhập PHƯƠNG THỨC cuộc thi',
@@ -69,7 +72,8 @@ class ContestController extends Controller
         $contest->Date_end =$request->txt_Date_end;
         $contest->Date_result =$request->txt_Date_result;
         $contest->Noidung =$request->txt_NoiDung;
-        $contest->Quydinh =$request->txt_QuyDinh;
+        $contest->Thele =$request->txt_TheLe;
+        $contest->Thele_tomtat =$request->txt_TheLe_tomtat;
         $contest->Quycach =$request->txt_QuyCach;
         $contest->Phuongthuc =$request->txt_PhuongThuc;
         $contest->Doituong =$request->txt_DoiTuong;
@@ -90,15 +94,17 @@ class ContestController extends Controller
     public function postSua(Request $request, $id)
     {
         $contest = Contest::find($id);
+        // $contestAll = Contest::all();
 
         $this->validate($request,
             [
-                'txt_Ten' => 'required|unique:Contest,Ten|min:8|max:100',
+                'txt_Ten' => 'required|min:8|max:100',
                 'txt_Date_begin' => 'required',
                 'txt_Date_end' => 'required',
                 'txt_Date_result' => 'required',
                 'txt_NoiDung' => 'required|min:8',
-                'txt_QuyDinh' => 'required|min:8',
+                'txt_TheLe' => 'required|min:8',
+                'txt_TheLe_tomtat' => 'required|min:8',
                 'txt_QuyCach' => 'required|min:8',
                 'txt_PhuongThuc' => 'required|min:8',
                 'txt_DoiTuong' => 'required|min:8',
@@ -106,7 +112,6 @@ class ContestController extends Controller
             ],
             [
                 'txt_Ten.required' => 'Bạn chưa nhập TÊN cuộc thi',
-                'txt_Ten.unique' => 'Bạn nhập TÊN cuộc thi đã tồn tại',
                 'txt_Ten.min' => 'Tên cuộc thi tối thiểu 8 ký tự và tối đa 100 ký tự',
                 'txt_Ten.max' => 'Tên cuộc thi tối thiểu 8 ký tự và tối đa 100 ký tự',
                 'txt_Date_begin.required' => 'Bạn chưa nhập NGÀY BẮT ĐẦU',
@@ -114,8 +119,10 @@ class ContestController extends Controller
                 'txt_Date_result.required' => 'Bạn chưa nhập NGÀY KẾT QUẢ',
                 'txt_NoiDung.required' => 'Bạn chưa nhập NỘI DUNG cuộc thi',
                 'txt_NoiDung.min' => 'NỘI DUNG cuộc thi tối thiểu 8 ký tự',
-                'txt_QuyDinh.required' => 'Bạn chưa nhập QUY ĐỊNH cuộc thi',
-                'txt_QuyDinh.min' => 'QUY ĐỊNH cuộc thi tối thiểu 8 ký tự',
+                'txt_TheLe.required' => 'Bạn chưa nhập THỂ LỆ cuộc thi',
+                'txt_TheLe.min' => 'THỂ LỆ cuộc thi tối thiểu 8 ký tự',
+                'txt_TheLe_tomtat.required' => 'Bạn chưa nhập THỂ LỆ TÓM TẮT cuộc thi',
+                'txt_TheLe_tomtat.min' => 'THỂ LỆ TÓM TẮT cuộc thi tối thiểu 8 ký tự',
                 'txt_QuyCach.required' => 'Bạn chưa nhập QUY CÁCH cuộc thi',
                 'txt_QuyCach.min' => 'QUY CÁCH cuộc thi tối thiểu 8 ký tự',
                 'txt_PhuongThuc.required' => 'Bạn chưa nhập PHƯƠNG THỨC cuộc thi',
@@ -131,14 +138,23 @@ class ContestController extends Controller
         $contest->Date_end = $request->txt_Date_end;
         $contest->Date_result = $request->txt_Date_result;
         $contest->Noidung = $request->txt_NoiDung;
-        $contest->Quydinh = $request->txt_QuyDinh;
+        $contest->Thele =$request->txt_TheLe;
+        $contest->Thele_tomtat =$request->txt_TheLe_tomtat;
         $contest->Quycach = $request->txt_QuyCach;
         $contest->Phuongthuc = $request->txt_PhuongThuc;
         $contest->Doituong = $request->txt_DoiTuong;
         $contest->Giaithuong = $request->txt_GiaiThuong;
+
+        if($request->sel_Active == 1)
+        {
+            Contest::where('Active',1)->update(['Active'=>'0']);
+                        
+            $contest->Active = $request->sel_Active;
+        }
+        
         $contest->save();
 
-        return redirect('admin/contest/sua/'.$id)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/contest/sua/'.$id)->with('thongbao', 'Cập nhật thành công');
     }
 
     //Xóa Cuộc thi

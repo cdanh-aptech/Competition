@@ -38,8 +38,11 @@ class AjaxController extends Controller
             echo"<div class='col-lg-12'> <b><u>Nội dung:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='NoiDung' rows='5' readonly>".$ct->Noidung."</textarea>";
 
-            echo"<div class='col-lg-12'> <b><u>Quy định:</u></b> </div>
-                <textarea class='col-lg-12 form-control' name='Quydinh' rows='5' readonly>".$ct->Quydinh."</textarea>";
+            echo"<div class='col-lg-12'> <b><u>Thể lệ:</u></b> </div>
+                <textarea class='col-lg-12 form-control' name='TheLe' rows='5' readonly>".$ct->Thele."</textarea>";
+            
+            echo"<div class='col-lg-12'> <b><u>Thể lệ tóm tắt:</u></b> </div>
+                <textarea class='col-lg-12 form-control' name='TheLe_tomtat' rows='5' readonly>".$ct->Thele_tomtat."</textarea>";
 
             echo"<div class='col-lg-12'> <b><u>Quy cách:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='Quycach' rows='5' readonly>".$ct->Quycach."</textarea>";

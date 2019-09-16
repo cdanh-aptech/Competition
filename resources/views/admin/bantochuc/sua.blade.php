@@ -16,13 +16,13 @@
             <form action="admin/bantochuc/sua/{{$bantochuc->id}}" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label><u>Thành phần Ban Tổ Chức:</u></label>
-                    <textarea class="form-control" name="txt_ThanhPhanBTC" rows="5">{{$bantochuc->ThanhphanBTC}}</textarea>
+                        <textarea id="demo" class="form-control ckeditor" name="txt_ThanhPhanBTC" rows="5">{{$bantochuc->ThanhphanBTC}}</textarea>
                     </div>
 
                     <div class="form-group">
-                            <label><u>Thành phần Giám Khảo:</u></label>
-                        <textarea class="form-control" name="txt_ThanhPhanGK" rows="5">{{$bantochuc->ThanhphanGK}}</textarea>
-                        </div>
+                        <label><u>Thành phần Giám Khảo:</u></label>
+                        <textarea id="demo" class="form-control ckeditor" name="txt_ThanhPhanGK" rows="5">{{$bantochuc->ThanhphanGK}}</textarea>
+                    </div>
 
                     <div class="form-group">
                         <label><u>Cuộc thi:</u></label>

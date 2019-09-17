@@ -1,5 +1,9 @@
 @extends('admin.layout.index')
 
+@section('title')
+    Slide
+@endsection
+
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">

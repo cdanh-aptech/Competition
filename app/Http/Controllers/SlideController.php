@@ -46,9 +46,10 @@ class SlideController extends Controller
         {
             $file = $request->file('txt_Hinh');
             $ext = $file->getClientOriginalExtension();
+            $ext = strtolower($ext);
             if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg')
             {
-                return redirect('admin/slide/them')->with('loi', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
+                return redirect('admin/slide/them')->with('thongbao', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $Hinh = str_random(4)."_".$name;
@@ -94,9 +95,10 @@ class SlideController extends Controller
         {
             $file = $request->file('txt_Hinh');
             $ext = $file->getClientOriginalExtension();
+            $ext = strtolower($ext);
             if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg')
             {
-                return redirect('admin/slide/them')->with('loi', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
+                return redirect('admin/slide/them')->with('thongbao', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $Hinh = str_random(4)."_".$name;

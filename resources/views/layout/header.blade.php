@@ -1,10 +1,10 @@
 
-<nav class="qbootstrap-nav" role="navigation">
+<nav class="qbootstrap-nav" role="navigation" id="page">
 		<div class="top-menu">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<!-- Menu Nav-->
-					<div class="col-xs-12 text-center navbar-inverse navbar-fixed-top">
+					<div class="col-lg-12 text-center navbar-inverse navbar-fixed-top">
 							<div class="menu-1">
 								<ul>
 									<li class="btn-cta">
@@ -14,11 +14,33 @@
 											</span>
 										</a>
 									</li>
-
-									<li><a href="services.html">ĐĂNG KÝ THAM GIA</a></li>
-									<li><a href="departments.html">THỂ LỆ</a></li>
-									<li><a href="departments.html">TÁC GIẢ</a></li>
-									<li><a href="departments.html">ĐĂNG NHẬP</a></li>
+									
+									<li><a href="thele">THỂ LỆ</a></li>
+									
+									@php
+										if(Auth::check())
+										{
+											$user_login = Auth::user();
+										}
+									@endphp
+									@if(!isset($user_login))
+										<li><a href="dangky">ĐĂNG KÝ THAM GIA</a></li>
+										<li><a href="dangnhap">ĐĂNG NHẬP</a></li>
+									@else
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="tacgia" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<span><i class="icon-user2"></i>{{$user_login->Ten}}</span>
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<a class="dropdown-item" href="tacgia">Thông tin</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="tacpham">Tác phẩm</a>
+										</div>
+									</li>
+										<li>
+											<a href="dangxuat">ĐĂNG XUẤT<span><i class="icon-arrow-right"></i></a>
+										</li>
+									@endif
 								</ul>
 							</div>
 					</div>

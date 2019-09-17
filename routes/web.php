@@ -92,8 +92,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
         Route::get('danhsach', 'TacPhamController@getDanhSach');
 
         Route::get('sua/{id}', 'TacPhamController@getSua');
+        Route::post('sua/{id}', 'TacPhamController@postSua');
 
         Route::get('them', 'TacPhamController@getThem');
+        Route::post('them', 'TacPhamController@postThem');
     });
 
     Route::group(['prefix' => 'ajax'], function () {
@@ -107,5 +109,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 // Trang chu
 Route::get('trangchu', 'PagesController@getTrangChu');
 
+// Đăng nhập
 Route::get('dangnhap', 'PagesController@getDangNhap');
 Route::post('dangnhap', 'PagesController@postDangNhap');
+Route::get('dangxuat', 'PagesController@getDangXuat');
+
+// Sửa thông tin Tác giả
+Route::get('tacgia', 'PagesController@getTacGia');
+Route::post('tacgia', 'PagesController@postTacGia');
+
+// Sửa thông tin Tác phẩm
+Route::get('tacpham', 'PagesController@getTacPham');
+Route::post('tacpham', 'PagesController@postTacPham');
+
+// Đăng ký
+Route::get('dangky', 'PagesController@getDangKy');
+Route::post('dangky', 'PagesController@postDangKy');
+
+// Thể lệ
+Route::get('thele', 'PagesController@getTheLe');
+
+

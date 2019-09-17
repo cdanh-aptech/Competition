@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Laravel Framework 5.x">
     <meta name="author" content="">
-    <title>Admin Page</title>
+    <title>Admin Page | @yield('title')</title>
     <base href="{{asset('')}}" >
 
     <!-- Bootstrap Core CSS -->

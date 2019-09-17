@@ -23,19 +23,19 @@
 					- Thông báo kết quả: {{$Date_result}} <br>
 					- Trao giải thưởng: {{$Date_award}} (sau 07 ngày)
 				</p>
-				<a href="#" class="btn btn-primary">Chi tiết</a>
+				<a href="thele" class="btn btn-primary">Chi tiết</a>
 			</div>
 			<div class="intro-grid color-2">
 				<span class="icon"><i class="icon-wallet2"></i></span>
 				<h3>THỂ LỆ CUỘC THI</h3>
 					<p>{!!$ct->Thele_tomtat!!}</p>
-				<a href="#" class="btn btn-primary">Chi tiết</a>
+				<a href="thele" class="btn btn-primary">Chi tiết</a>
 			</div>
 		
 			<div class="intro-grid color-3" >
 				<span class="icon"><i class="icon-clock3"></i></span>
 				
-				<h3>NGÀY HẾT HẠN NHẬN ẢNH</h3>
+				<h3>KHÓA SỔ NHẬN ẢNH</h3>
 				<p><h2>{{$Date_view}} 23:59</h2></p>
 				@php
 					$countUser = 0;
@@ -45,8 +45,8 @@
 					}
 					
 				@endphp
-				<p><h4><i>Đã có {{$countUser}} tác giả và {{$countTacPham}} tác phẩm</i></h4></p>
-				<p><h3 id="St_Countdown_text"></h3></p>
+				<p><h4><i>Đã có &nbsp; <b>{{$countUser}}</b> &nbsp; Tác giả,  &nbsp; <b>{{$countTacPham}}</b> &nbsp; Tác phẩm</i></h4></p>
+				<p><h3><span id="Countdown_text"></span></h3></p>
 				
 				
 			</div>
@@ -54,10 +54,9 @@
 		</div>
 	</div>
 </div>
+
+{{-- Hiện thời gian đếm ngược --}}
 <script>
-        // countdown('2019/9/17', ['days', 'hours', 'minutes', 'seconds'], function(){
-        //     console.log('done');
-        // }) 10/16/2019 23:59:00
     var countDownDate = new Date("{{$ct->Date_end}}").getTime();
     var x = setInterval(function() {
         var now = new Date().getTime();
@@ -65,14 +64,20 @@
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		document.getElementById("St_Countdown_text").innerHTML = "<div><table class='countdownView'><tr class='numberView'><th>" + days + " : </th><th>&nbsp;" + hours + " : </th><th>&nbsp;" + minutes + " : </th><th>&nbsp;" + seconds +"</th></tr><tr class='labelView'><td>NGÀY</td><td>GIỜ</td><td>PHÚT</td><td>GIÂY</td></tr></table></div>"
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		
+		days = (days < 10) ? "0"+days : days;
+		hours = (hours < 10) ? "0"+hours : hours;
+		minutes = (minutes < 10) ? "0"+minutes : minutes;
+		seconds = (seconds < 10) ? "0"+seconds : seconds;
+
+		document.getElementById("Countdown_text").innerHTML = "<table class='countdownView'><tr class='numberView'><th>" + days + "<th>&nbsp;:&nbsp;</th></th><th>" + hours + "<th>&nbsp;:&nbsp;</th></th><th>" + minutes + "<th>&nbsp;:&nbsp;</th></th><th>" + seconds +"</th></tr><tr class='labelView'><td>NGÀY</td><td>&nbsp;</td><td>GIỜ</td><td>&nbsp;</td><td>PHÚT</td><td>&nbsp;</td><td>GIÂY</td></tr></table>"
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("St_Countdown_text").innerHTML = "ĐÃ HẾT THỜI GIAN NHẬN ẢNH";
+            document.getElementById("Countdown_text").innerHTML = "ĐÃ HẾT THỜI GIAN NHẬN ẢNH";
         }
 	}, 1000);
 	
 </script>
-
+{{-- End Hiện thời gian đếm ngược --}}
 @endforeach

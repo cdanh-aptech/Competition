@@ -1,5 +1,9 @@
 @extends('admin.layout.index')
 
+@section('title')
+    Ban tổ chức
+@endsection
+
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">

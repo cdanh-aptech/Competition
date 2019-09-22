@@ -8,7 +8,7 @@ use App\TheLoai;
 
 class AjaxController extends Controller
 {
-    //
+    // Ajax cho Cuộc thi
     public function getContest($id)
     {
         $contest = Contest::where('id',$id)->get();
@@ -38,29 +38,17 @@ class AjaxController extends Controller
            
             // echo "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal-Delete'><i class='fa fa-trash-o fa-fw'></i>Xóa</button>";
 
-            echo"<div class='col-lg-12'> <b><u>Nội dung:</u></b> </div>
-                <textarea class='col-lg-12 form-control' name='NoiDung' rows='5' readonly>".$ct->Noidung."</textarea>";
-
             echo"<div class='col-lg-12'> <b><u>Thể lệ:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='TheLe' rows='5' readonly>".$ct->Thele."</textarea>";
             
-            echo"<div class='col-lg-12'> <b><u>Thể lệ tóm tắt:</u></b> </div>
-                <textarea class='col-lg-12 form-control' name='TheLe_tomtat' rows='5' readonly>".$ct->Thele_tomtat."</textarea>";
-
             echo"<div class='col-lg-12'> <b><u>Ban tổ chức:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='BanToChuc' rows='5' readonly>".$ct->Bantochuc."</textarea>";
 
             echo"<div class='col-lg-12'> <b><u>Ban giám khảo:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='Bangiamkhao' rows='5' readonly>".$ct->Bangiamkhao."</textarea>";
 
-            echo"<div class='col-lg-12'> <b><u>Quy cách:</u></b> </div>
-                <textarea class='col-lg-12 form-control' name='Quycach' rows='5' readonly>".$ct->Quycach."</textarea>";
-            
             echo"<div class='col-lg-12'> <b><u>Phương thức:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='Phuongthuc' rows='5' readonly>".$ct->Phuongthuc."</textarea>";
-            
-            echo"<div class='col-lg-12'> <b><u>Đối tượng:</u></b> </div>
-                <textarea class='col-lg-12 form-control' name='Doituong' rows='5' readonly>".$ct->Doituong."</textarea>";
             
             echo"<div class='col-lg-12'> <b><u>Giải thưởng:</u></b> </div>
                 <textarea class='col-lg-12 form-control' name='Giaithuong' rows='5' readonly>".$ct->Giaithuong."</textarea>";

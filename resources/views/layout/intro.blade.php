@@ -23,8 +23,14 @@
 				<h3>THỜI GIAN</h3>
 				<p>		
 					- Nhận tác phẩm: {{$Date_begin}} - {{$Date_end}} <br>
+				</p>
+				<p>
 					- Chấm tác phẩm: {{$Date_recive}} - {{$Date_result}} <br>
+				</p>
+				<p>
 					- Thông báo kết quả: {{$Date_result}} <br>
+				</p>
+				<p>
 					- Trao giải thưởng: {{$Date_award}} (sau 07 ngày)
 				</p>
 				<a href="thele" class="btn btn-primary">Chi tiết</a>
@@ -32,7 +38,7 @@
 			<div class="intro-grid color-2">
 				<span class="icon"><i class="icon-wallet2"></i></span>
 				<h3>THỂ LỆ CUỘC THI</h3>
-					<p>{!!$ct->Thele_tomtat!!}</p>
+					<p>{!!$ct->Thele!!}</p>
 				<a href="thele" class="btn btn-primary">Chi tiết</a>
 			</div>
 		
@@ -43,7 +49,10 @@
 				<p><h2>{{$Date_view}} 23:59</h2></p>
 				@php
 					$countUser = 0;
-					$countTacPham = count($tacpham);
+					$countTacPham = 0;
+					foreach ($tacpham as $tp)
+						if ($tp->contest->id == $ct->id)
+							$countTacPham++;
 					foreach ($user as $u){
 						if ($u->quyen == 0) $countUser++;
 					}

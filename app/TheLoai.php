@@ -13,4 +13,9 @@ class TheLoai extends Model
     {
         return $this->belongsTo('App\Contest','id_contest','id');
     }
+
+    public function tacpham()
+    {
+        return $this->hasMany('App\TacPham','id_theloai','id');
+    }
 }

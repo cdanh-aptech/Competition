@@ -15,11 +15,9 @@
                 </h1>
             </div>
 
-            
-
             <!-- /.col-lg-12 -->
             <div class="col-lg-12 form-group" style="padding-bottom:120px">
-                {{-- @foreach($contest as $ct) --}}
+
             @include('errors/errors')
 
             <form action="admin/contest/sua/{{$contest->id}}" method="POST">
@@ -54,20 +52,20 @@
                         <input class="form-control" type="date" name="txt_Date_result" value="{{$contest->Date_result}}">
                     </div>
 
-                    <div class="col-lg-12" style="padding-bottom:20px">
+                    {{-- <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Nội dung:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_NoiDung" rows="5">{{$contest->Noidung}}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Thể lệ:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe" rows="5">{{$contest->Thele}}</textarea>
                     </div>
 
-                    <div class="col-lg-12" style="padding-bottom:20px">
+                    {{-- <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Thể lệ tóm tắt:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe_tomtat" rows="5">{{$contest->Thele_tomtat}}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Ban tổ chức:</u></b>
@@ -79,20 +77,20 @@
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_BanGiamKhao" rows="5">{{$contest->Bangiamkhao}}</textarea>
                     </div>
 
-                    <div class="col-lg-12" style="padding-bottom:20px">
+                    {{-- <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Quy cách:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_QuyCach" rows="5">{{$contest->Quycach}}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Phương thức:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_PhuongThuc" rows="5">{{$contest->Phuongthuc}}</textarea>
                     </div>
 
-                    <div class="col-lg-12" style="padding-bottom:20px">
+                    {{-- <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Đối tượng:</u></b>
                         <textarea id="demo" class="col-lg-12 ckeditor" name="txt_DoiTuong" rows="5">{{$contest->Doituong}}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Giải thưởng:</u></b>
@@ -106,7 +104,6 @@
                 {{csrf_field()}}
             </form>
                 
-                {{-- @endforeach --}}
             </div>
         </div>
         <!-- /.row -->

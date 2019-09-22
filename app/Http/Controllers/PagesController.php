@@ -22,13 +22,11 @@ class PagesController extends Controller
         $user = User::all();
         $tacpham = TacPham::all();
         $theloai = TheLoai::all();
-        $theloaifirst = TheLoai::all();
         view()->share('contest',$contest);
         view()->share('slide',$slide);
         view()->share('user',$user);
         view()->share('tacpham',$tacpham);
         view()->share('theloai', $theloai);
-        view()->share('theloaifirst', $theloaifirst);
 
         if(Auth::check())
         {
@@ -194,13 +192,15 @@ class PagesController extends Controller
     public function postTacPham(Request $request)
     {
         $user = Auth::user();
+        $contest = Contest::where('Active',1)->get();
         $tacpham = new TacPham;
         $tacpham->Ten = $request->txt_Ten;
 
         $tacpham->id_user = $user->id;
-
-        if($request->has('txt_Contest'))
-            $tacpham->id_contest = $request->txt_Contest;
+        foreach($contest as $ct)
+        {
+            $tacpham->id_contest = $ct->id;
+        }
 
         if($request->has('sel_TheLoai'))
             $tacpham->id_theloai = $request->sel_TheLoai;
@@ -223,11 +223,11 @@ class PagesController extends Controller
             // }
             $name = $file->getClientOriginalName();
             $tp = str_random(4)."_".$name;
-            while(file_exists("images/tacpham/".$tp));
+            while(file_exists("images/tacpham/".$user->id."/".$tp));
             {
                 $tp = str_random(4)."_".$name;
             }
-            $file->move("images/tacpham/".$user->id,$tp);
+            $file->move("images/tacpham/".$user->id."/",$tp);
             $tacpham->File = $tp;
         }
         // else {
@@ -254,6 +254,8 @@ class PagesController extends Controller
     // Thống kê
     public function getThongKe()
     {
-        return view('pages.thongke');
+        $tacgia = User::where('quyen',0)->get();
+        $tacpham_user = TacPham::all();
+        return view('pages.thongke', ['tacgia'=>$tacgia, 'tacpham_user'=>$tacpham_user]);
     }
 }

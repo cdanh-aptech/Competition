@@ -118,11 +118,11 @@ class TheLoaiController extends Controller
                 return redirect('admin/theloai/them')->with('thongbao', 'Bạn chỉ chọn file có đuôi pdf');
             }
             $name = $file->getClientOriginalName();
-            $pdf = str_random(4)."_".$name;
-            while(file_exists("files/pdf/".$pdf));
-            {
-                $pdf = str_random(4)."_".$name;
-            }
+            $pdf = $name;
+            // while(file_exists("files/pdf/".$pdf));
+            // {
+            //     $pdf = str_random(4)."_".$name;
+            // }
             $file->move("files/pdf/",$pdf);
             $theloai->Thele_pdf = $pdf;
         }
@@ -232,11 +232,11 @@ class TheLoaiController extends Controller
                 return redirect('admin/theloai/sua')->with('thongbao', 'Bạn chỉ chọn file có đuôi pdf');
             }
             $name = $file->getClientOriginalName();
-            $pdf = str_random(4)."_".$name;
-            while(file_exists("files/pdf/".$pdf));
-            {
-                $pdf = str_random(4)."_".$name;
-            }
+            $pdf = $name;
+            // while(file_exists("files/pdf/".$pdf));
+            // {
+            //     $pdf = str_random(4)."_".$name;
+            // }
             $file->move("files/pdf/",$pdf);
             $theloai->Thele_pdf = $pdf;
         }

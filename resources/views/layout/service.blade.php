@@ -40,7 +40,7 @@
                             <i class="icon-group"></i>
                         </span>
                         <div class="desc">
-                            <h3><a href="#">HỘI ĐỒNG GIÁM KHẢO</a></h3>
+                            <h3><a href="#">BAN GIÁM KHẢO</a></h3>
                             {{-- @foreach($bantochuc as $btc)
                                 @if($btc->id_contest == $ct->id) --}}
                                     <p class="lead">{!!$ct->Bangiamkhao!!}</p>

@@ -103,11 +103,11 @@
                         </p>
                         <p>
                             <b>XI. BAN TỔ CHỨC </b><br>
-                                {!!$ct->Bantochuc!!}
+                                {!!$tl->Bantochuc!!}
                         </p>
                         <p>
                             <b>XII. BAN GIÁM KHẢO </b><br>
-                                {!!$ct->Bangiamkhao!!}
+                                {!!$tl->Bangiamkhao!!}
                         </p>
                         <p>
                             <b>THÔNG TIN LIÊN HỆ BAN TỔ CHỨC </b><br>
@@ -138,7 +138,10 @@
         <p><h2>{{$Date_view}} 23:59</h2></p>
         @php
             $countUser = 0;
-            $countTacPham = count($tacpham);
+            $countTacPham = 0;
+            foreach ($tacpham as $tp)
+                if ($tp->contest->id == $ct->id)
+                    $countTacPham++;
             foreach ($user as $u){
                 if ($u->quyen == 0) $countUser++;
             }
@@ -164,10 +167,11 @@
     <div class="intro-grid color-2">
         <span class="icon"><i class="icon-wallet2"></i></span>
         <h3>THỂ LỆ CUỘC THI</h3>
-            <p>{!!$ct->Thele_tomtat!!}</p>
+            <p>{!!$ct->Thele!!}</p>
         <a href="thele" class="btn btn-primary">Chi tiết</a>
     </div>
-        
+
+
 {{-- End Intro Sidebar Right --}}     
 
     </div>

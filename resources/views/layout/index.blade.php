@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Competition| @yield('title')</title>
+	<title>Competition | @yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by QBOOTSTRAP.COM" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -52,8 +52,11 @@
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- jQuery UI css  -->
+	<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+	
 
 	@yield('css')
 	
@@ -63,6 +66,7 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	
 
 	</head>
 	<body>
@@ -92,6 +96,8 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
+	{{-- jQuery-UI --}}
+	<script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
@@ -113,6 +119,7 @@
 	<script src="js/main.js"></script>
 	<!-- Countdown -->
 	<script src='js/countdown.js'></script>
+	<script type="text/javascript" language="javascript" src="ckeditor/ckeditor.js" ></script>
 
 	@yield('script')
 

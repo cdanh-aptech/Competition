@@ -7,14 +7,14 @@
 @section('content')
 <!-- Page Content -->
 <div class="container">
-    <div class="row carousel-holder">
+    <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
 
                 @include('errors.errors')
                 
             <div class="panel panel-primary bg-transparent">
-                    <div class="panel-heading">Đăng nhập</div>
+                    <div class="panel-heading">ĐĂNG NHẬP</div>
                     <div class="panel-body">
                     
                     <form action="dangnhap" method="POST">

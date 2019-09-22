@@ -105,11 +105,25 @@
                         </div>
 
                         <div class="col-lg-12">
-                                {{-- <b><u>Thể lệ tóm tắt:</u></b> --}}
-                                {{-- <textarea class="col-lg-12" name="TheLe_tomtat" rows="5" readonly> --}}
-                                        {{-- {{$ct->Thele_tomtat}} --}}
-                                {{-- </textarea> --}}
-                            </div>
+                            {{-- <b><u>Thể lệ tóm tắt:</u></b> --}}
+                            {{-- <textarea class="col-lg-12" name="TheLe_tomtat" rows="5" readonly> --}}
+                                    {{-- {{$ct->Thele_tomtat}} --}}
+                            {{-- </textarea> --}}
+                        </div>
+
+                        <div class="col-lg-12">
+                            {{-- <b><u>Ban tổ chức:</u></b> --}}
+                            {{-- <textarea class="col-lg-12" name="BanToChuc" rows="5" readonly> --}}
+                                    {{-- {{$ct->Bantochuc}} --}}
+                            {{-- </textarea> --}}
+                        </div>
+
+                        <div class="col-lg-12">
+                            {{-- <b><u>Ban giám khảo:</u></b> --}}
+                            {{-- <textarea class="col-lg-12" name="BanGiamKhao" rows="5" readonly> --}}
+                                    {{-- {{$ct->Bangiamkhao}} --}}
+                            {{-- </textarea> --}}
+                        </div>
 
                         <div class="col-lg-12">
                             {{-- <b><u>Quy cách:</u></b> --}}

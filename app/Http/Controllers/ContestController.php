@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Contest;
-use App\BanToChuc;
+use App\TheLoai;
 use App\GiamKhao;
 use App\Slide;
 use App\TacPham;
@@ -105,6 +105,8 @@ class ContestController extends Controller
                 'txt_NoiDung' => 'required|min:8',
                 'txt_TheLe' => 'required|min:8',
                 'txt_TheLe_tomtat' => 'required|min:8',
+                'txt_BanToChuc' => 'required|min:8',
+                'txt_BanGiamKhao' => 'required|min:8',
                 'txt_QuyCach' => 'required|min:8',
                 'txt_PhuongThuc' => 'required|min:8',
                 'txt_DoiTuong' => 'required|min:8',
@@ -123,6 +125,10 @@ class ContestController extends Controller
                 'txt_TheLe.min' => 'THỂ LỆ cuộc thi tối thiểu 8 ký tự',
                 'txt_TheLe_tomtat.required' => 'Bạn chưa nhập THỂ LỆ TÓM TẮT cuộc thi',
                 'txt_TheLe_tomtat.min' => 'THỂ LỆ TÓM TẮT cuộc thi tối thiểu 8 ký tự',
+                'txt_BanToChuc.required' => 'Bạn chưa nhập BAN TỔ CHỨC cuộc thi',
+                'txt_BanToChuc.min' => 'BAN TỔ CHỨC cuộc thi tối thiểu 8 ký tự',
+                'txt_BanGiamKhao.required' => 'Bạn chưa nhập BAN GIÁM KHẢO cuộc thi',
+                'txt_BanGiamKhao.min' => 'BAN GIÁM KHẢO cuộc thi tối thiểu 8 ký tự',
                 'txt_QuyCach.required' => 'Bạn chưa nhập QUY CÁCH cuộc thi',
                 'txt_QuyCach.min' => 'QUY CÁCH cuộc thi tối thiểu 8 ký tự',
                 'txt_PhuongThuc.required' => 'Bạn chưa nhập PHƯƠNG THỨC cuộc thi',
@@ -140,18 +146,20 @@ class ContestController extends Controller
         $contest->Noidung = $request->txt_NoiDung;
         $contest->Thele =$request->txt_TheLe;
         $contest->Thele_tomtat =$request->txt_TheLe_tomtat;
+        $contest->Bantochuc =$request->txt_BanToChuc;
+        $contest->Bangiamkhao =$request->txt_BanGiamKhao;
         $contest->Quycach = $request->txt_QuyCach;
         $contest->Phuongthuc = $request->txt_PhuongThuc;
         $contest->Doituong = $request->txt_DoiTuong;
         $contest->Giaithuong = $request->txt_GiaiThuong;
 
-        if($request->sel_Active == 1)
+        if($request->sel_Active == 1 && $contest->Active == 0)
         {
             Contest::where('Active',1)->update(['Active'=>'0']);
-                        
             $contest->Active = $request->sel_Active;
         }
-        
+        else $contest->Active = $request->sel_Active;
+
         $contest->save();
 
         return redirect('admin/contest/sua/'.$id)->with('thongbao', 'Cập nhật thành công');

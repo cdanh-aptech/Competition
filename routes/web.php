@@ -11,15 +11,18 @@
 |
 */
 use App\Contest;
-use App\BanToChuc;
+// use App\BanToChuc;
 use App\GiamKhao;
 use App\Slide;
 use App\TacPham;
 use App\Result;
 use App\User;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/trangchu', function () {
+    return view('pages.trangchu');
+});
+Route::get('/admin', function () {
+    return view('admin.login');
 });
 
 // Admin ----------------------------------------------
@@ -40,19 +43,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
         Route::get('them', 'ContestController@getThem');
         Route::post('them', 'ContestController@postThem');
     });
-    // ban to chuc
-    Route::group(['prefix' => 'bantochuc'], function () {
-        Route::get('danhsach', 'BanToChucController@getDanhSach');
+    // Thể loại
+    Route::group(['prefix' => 'theloai'], function () {
+        Route::get('danhsach', 'TheLoaiController@getDanhSach');
 
-        Route::get('sua/{id}', 'BanToChucController@getSua');
-        Route::post('sua/{id}', 'BanToChucController@postSua');
+        Route::get('sua/{id}', 'TheLoaiController@getSua');
+        Route::post('sua/{id}', 'TheLoaiController@postSua');
 
-        Route::get('xoa/{id}', 'BanToChucController@getXoa');
+        Route::get('xoa/{id}', 'TheLoaiController@getXoa');
 
-        Route::get('them', 'BanToChucController@getThem');
-        Route::post('them', 'BanToChucController@postThem');
+        Route::get('them', 'TheLoaiController@getThem');
+        Route::post('them', 'TheLoaiController@postThem');
         
     });
+
     // User
     Route::group(['prefix' => 'user'], function () {
         Route::get('danhsach', 'UserController@getDanhSach');
@@ -100,7 +104,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
     Route::group(['prefix' => 'ajax'], function () {
         Route::get('contest/{id}', 'AjaxController@getContest');
+
+        Route::get('theloai/{id}', 'AjaxController@getTheLoai');
+
+        
+
     });
+
+    
 
 });
 
@@ -113,6 +124,8 @@ Route::get('trangchu', 'PagesController@getTrangChu');
 Route::get('dangnhap', 'PagesController@getDangNhap');
 Route::post('dangnhap', 'PagesController@postDangNhap');
 Route::get('dangxuat', 'PagesController@getDangXuat');
+
+
 
 // Sửa thông tin Tác giả
 Route::get('tacgia', 'PagesController@getTacGia');
@@ -128,5 +141,11 @@ Route::post('dangky', 'PagesController@postDangKy');
 
 // Thể lệ
 Route::get('thele', 'PagesController@getTheLe');
+Route::get('thele_pdf', 'PagesController@getTheLe_pdf');
+
+Route::get('ajax/thele/{id}', 'AjaxController@getTheLe');
+
+// Thống kê
+Route::get('thongke', 'PagesController@getThongKe');
 
 

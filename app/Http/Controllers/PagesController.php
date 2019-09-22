@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Contest;
-use App\BanToChuc;
+use App\TheLoai;
 use App\GiamKhao;
 use App\Slide;
 use App\TacPham;
@@ -18,15 +18,17 @@ class PagesController extends Controller
     function __construct()
     {
         $contest = Contest::where('Active',1)->get();
-        $bantochuc = BanToChuc::all();
         $slide = Slide::all();
         $user = User::all();
         $tacpham = TacPham::all();
+        $theloai = TheLoai::all();
+        $theloaifirst = TheLoai::all();
         view()->share('contest',$contest);
-        view()->share('bantochuc',$bantochuc);
         view()->share('slide',$slide);
         view()->share('user',$user);
         view()->share('tacpham',$tacpham);
+        view()->share('theloai', $theloai);
+        view()->share('theloaifirst', $theloaifirst);
 
         if(Auth::check())
         {
@@ -176,8 +178,17 @@ class PagesController extends Controller
     public function getTacPham()
     {
         $user = Auth::user();
-        $contest = Contest::all();
-        return view('pages.tacpham', ['tacgia'=>$user, 'contest'=>$contest]);
+        $contest = Contest::where('Active',1)->get();
+        $now = date("Y-m-d");
+        
+        foreach($contest as $ct)
+        {
+            if($ct->Date_end >= $now)
+                return view('pages.tacpham', ['tacgia'=>$user, 'contest'=>$contest]);
+            else {
+                return view('pages.trangchu');
+            }
+        }
     }
 
     public function postTacPham(Request $request)
@@ -186,42 +197,46 @@ class PagesController extends Controller
         $tacpham = new TacPham;
         $tacpham->Ten = $request->txt_Ten;
 
-        if($request->has('sel_CuocThi'))
-            $tacpham->id_contest = $request->sel_CuocThi;
-
         $tacpham->id_user = $user->id;
+
+        if($request->has('txt_Contest'))
+            $tacpham->id_contest = $request->txt_Contest;
+
+        if($request->has('sel_TheLoai'))
+            $tacpham->id_theloai = $request->sel_TheLoai;
+        
 
         if($request->has('txt_NoiDung'))
             $tacpham->Noidung = $request->txt_NoiDung;
 
-        if($request->has('txt_Link_Hinh'))
-            $tacpham->link_Hinh = $request->txt_Link_Hinh;
+        if($request->has('txt_Link_File'))
+            $tacpham->link_File = $request->txt_Link_File;
         
-        if($request->hasFile('txt_Hinh'))
+        if($request->hasFile('txt_File'))
         {
-            $file = $request->file('txt_Hinh');
-            $ext = $file->getClientOriginalExtension();
-            $ext = strtolower($ext);
-            if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg')
-            {
-                return redirect('tacpham')->with('thongbao', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
-            }
+            $file = $request->file('txt_File');
+            // $ext = $file->getClientOriginalExtension();
+            // $ext = strtolower($ext);
+            // if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg')
+            // {
+            //     return redirect('tacpham')->with('thongbao', 'Bạn chỉ chọn file hình có đuôi jpg,png,jpeg');
+            // }
             $name = $file->getClientOriginalName();
-            $Hinh = str_random(4)."_".$name;
-            while(file_exists("images/tacpham/".$Hinh));
+            $tp = str_random(4)."_".$name;
+            while(file_exists("images/tacpham/".$tp));
             {
-                $Hinh = str_random(4)."_".$name;
+                $tp = str_random(4)."_".$name;
             }
-            $file->move("images/tacpham/",$Hinh);
-            $tacpham->Hinh = $Hinh;
+            $file->move("images/tacpham/".$user->id,$tp);
+            $tacpham->File = $tp;
         }
-        else {
-            $tacpham->Hinh = "";
-        }
+        // else {
+        //     $tacpham->Hinh = "";
+        // }
 
         $tacpham->save();
 
-        return redirect('tacpham')->with('thongbao','Thêm thành công!');
+        return redirect('tacpham')->with('thongbao','Tác phẩm đã Thêm thành công!');
     }
 
     // Thể Lệ
@@ -229,5 +244,16 @@ class PagesController extends Controller
     {
         // $contest = Contest::where('Active',1)->get();
         return view('pages.thele');
+    }
+
+    public function getTheLe_pdf()
+    {
+        return view('pages.thele_pdf');
+    }
+
+    // Thống kê
+    public function getThongKe()
+    {
+        return view('pages.thongke');
     }
 }

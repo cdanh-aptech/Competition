@@ -9,9 +9,9 @@ class Contest extends Model
     //
     protected $table = "Contest";
 
-    public function bantochuc()
+    public function theloai()
     {
-        return $this->hasMany('App\BanToChuc','id_contest','id');
+        return $this->hasMany('App\TheLoai','id_contest','id');
     }
 
 

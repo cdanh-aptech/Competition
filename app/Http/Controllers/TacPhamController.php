@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Contest;
-use App\BanToChuc;
+use App\TheLoai;
 use App\GiamKhao;
 use App\Slide;
 use App\TacPham;

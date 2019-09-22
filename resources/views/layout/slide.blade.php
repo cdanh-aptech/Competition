@@ -11,7 +11,7 @@
 							<div class="row">
 								<div class="col-md-8 col-md-offset-2 text-center slider-text">
 									<div class="slider-text-inner">
-										<a href="public/{{$sl->link}}"><h1><strong>{{$ct->Ten}}</strong></h1></a>
+										<a href="{{$sl->link}}"><h1><strong>{{$ct->Ten}}</strong></h1></a>
 									</div>
 								</div>
 							</div>

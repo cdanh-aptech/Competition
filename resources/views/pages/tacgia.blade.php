@@ -13,7 +13,7 @@
         <div class="col-md-8">
             <div class="panel panel-primary">
                 @include('errors.errors')
-                <div class="panel-heading">Thông tin Tác giả</div>
+                <div class="panel-heading">THÔNG TIN TÁC GIẢ</div>
                     <div class="panel-body">
                     <form action="tacgia" method="POST">
                         {{csrf_field()}}

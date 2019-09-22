@@ -65,9 +65,19 @@
                     </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
-                            <b><u>Thể lệ tóm tắt:</u></b>
-                            <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe_tomtat" rows="5">{{$contest->Thele_tomtat}}</textarea>
-                        </div>
+                        <b><u>Thể lệ tóm tắt:</u></b>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_TheLe_tomtat" rows="5">{{$contest->Thele_tomtat}}</textarea>
+                    </div>
+
+                    <div class="col-lg-12" style="padding-bottom:20px">
+                        <b><u>Ban tổ chức:</u></b>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_BanToChuc" rows="5">{{$contest->Bantochuc}}</textarea>
+                    </div>
+
+                    <div class="col-lg-12" style="padding-bottom:20px">
+                        <b><u>Ban giám khảo:</u></b>
+                        <textarea id="demo" class="col-lg-12 ckeditor" name="txt_BanGiamKhao" rows="5">{{$contest->Bangiamkhao}}</textarea>
+                    </div>
 
                     <div class="col-lg-12" style="padding-bottom:20px">
                         <b><u>Quy cách:</u></b>

@@ -26,7 +26,7 @@
                             <i class="icon-upload"></i>
                         </span>
                         <div class="desc">
-                            <h3><a href="#">PHƯƠNG THỨC</a></h3>
+                            <h3><a href="#">PHƯƠNG THỨC THAM GIA</a></h3>
                             <p class="lead">{!!$ct->Phuongthuc!!}</p>
                         </div>
                     </div>
@@ -41,11 +41,11 @@
                         </span>
                         <div class="desc">
                             <h3><a href="#">HỘI ĐỒNG GIÁM KHẢO</a></h3>
-                            @foreach($bantochuc as $btc)
-                                @if($btc->id_contest == $ct->id)
-                                    <p class="lead">{!!$btc->ThanhphanGK!!}</p>
-                                @endif
-                            @endforeach
+                            {{-- @foreach($bantochuc as $btc)
+                                @if($btc->id_contest == $ct->id) --}}
+                                    <p class="lead">{!!$ct->Bangiamkhao!!}</p>
+                                {{-- @endif
+                            @endforeach --}}
                         </div>
                     </div>
                 </div>
@@ -57,11 +57,11 @@
                         </span>
                         <div class="desc">
                             <h3><a href="#">BAN TỔ CHỨC</a></h3>
-                            @foreach($bantochuc as $btc)
-                                @if($btc->id_contest == $ct->id)
-                                    <p class="lead">{!!$btc->ThanhphanBTC!!}</p>
-                                @endif
-                            @endforeach
+                            {{-- @foreach($bantochuc as $btc)
+                                @if($btc->id_contest == $ct->id) --}}
+                                    <p class="lead">{!!$ct->Bantochuc!!}</p>
+                                {{-- @endif
+                            @endforeach --}}
                         </div>
                     </div>
                 </div>

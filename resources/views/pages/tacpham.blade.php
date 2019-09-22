@@ -8,8 +8,8 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row carousel-holder">
-        <div class="col-md-2">
-        </div>
+
+        <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-primary">
                 @include('errors.errors')
@@ -25,9 +25,19 @@
                         <br>
                         <div>
                             <label><u>Cuộc thi:</u></label>
-                            <select class="form-control" name="sel_CuocThi">
-                                @foreach($contest as $ct)
-                                    <option value="{{$ct->id}}">{{$ct->Ten}}</option>
+                            @foreach($contest as $ct)
+                            @if ($ct->Active == 1)
+                                <input type="text" class="form-control" name="txt_Contest" aria-describedby="basic-addon1"
+                                    value="{{$ct->Ten}}" readonly>
+                            @endif
+                            @endforeach
+                        </div>
+                        <br>
+                        <div>
+                            <label> <b><u>Chọn Thể loại dự thi: </u></b> </label>
+                            <select class="form-control" name="sel_TheLoai">
+                                @foreach($theloai as $tl)
+                                    <option value="{{$tl->id}}">{{$tl->Ten}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -40,21 +50,21 @@
 
                         <div>
                             <label>Nội dung</label>
-                            <textarea id="demo" class="form-control" rows="5" name="txt_NoiDung" placeholder="Nhập Nội dung tác phẩm"></textarea>
+                            <textarea id="demo" class="form-control ckeditor" rows="5" name="txt_NoiDung" placeholder="Nhập Nội dung tác phẩm"></textarea>
                         </div>
                         <br>
                         <div>
-                            <label>Hình ảnh</label>
+                            <label>Tập tin Tác phẩm dự thi</label>
                             {{-- <img width="400px" src="images/tacpham/{{$tacpham->Hinh}}"> --}}
-                            <input type="file" class="form-control" name="txt_Hinh" />
+                            <input type="file" class="form-control" name="txt_File" />
                         </div>
                         <br>
                         <div>
-                            <label>link</label>
-                            <input class="form-control" name="txt_Link_Hinh" placeholder="Nhập LINK của Tác phẩm"/>
+                            <label>link Google Drive (nếu có)</label>
+                            <input class="form-control" name="txt_Link_File" placeholder="Nhập LINK của Tác phẩm"/>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Upload
+                        <button type="submit" class="btn btn-primary">Tải lên
                         </button>
 
                     </form>
@@ -68,19 +78,3 @@
 <!-- end Page Content -->    
 @endsection
 
-@section('script')
-    <script>
-        $(document).ready(function(){
-            $("#chk_Password").change(function(){
-                if($(this).is(":checked"))
-                {
-                    $(".password").removeAttr('disabled');
-                }
-                else
-                {
-                    $(".password").attr('disabled','');
-                }
-            });
-        });
-    </script>
-@endsection

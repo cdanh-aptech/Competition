@@ -29,13 +29,13 @@
             </li>
             
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Ban tổ chức<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thể loại<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/bantochuc/danhsach">Danh sách</a>
+                        <a href="admin/theloai/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="admin/bantochuc/them">Thêm mới</a>
+                        <a href="admin/theloai/them">Thêm mới</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

@@ -13,7 +13,7 @@
         <div class="col-md-8">
             <div class="panel panel-primary">
                 @include('errors.errors')
-                <div class="panel-heading">Đăng ký tài khoản</div>
+                <div class="panel-heading">ĐĂNG KÝ THÀNH VIÊN</div>
                     <div class="panel-body">
                         <form action="dangky" method="POST">
                             {{csrf_field()}}

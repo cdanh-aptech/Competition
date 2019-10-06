@@ -39,7 +39,19 @@
                             </td>
                             <td>{{$sl->link}}</td>
                             <td class="center"><i class="fa fa-pencil  fa-fw"></i><a href="admin/slide/sua/{{$sl->id}}"> Sửa </a></td>
-                            <td class="center"><i class="fa fa-trash-o fa-fw"></i> <a href="admin/slide/xoa/{{$sl->id}}"> Xóa</a></td>
+                            <td>
+                                <form id="frmXoaSlide" name="frmXoaSlide" method="get" action="admin/slide/xoa/{{$sl->id}}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <button class="btn btn-danger btn-icon-split btn-delete">
+                                        <span class="icon text-white-50">
+                                            <i class="fa fa-trash-o fa-fw"></i>
+                                        </span>
+                                        <span class="text">Xóa</span>
+                                    </button>
+                                </form>
+                            </td>
+                            {{-- <td class="center"><i class="fa fa-trash-o fa-fw"></i> <a href="admin/slide/xoa/{{$sl->id}}"> Xóa</a></td> --}}
                         </tr>
                         @endforeach
                     </tbody>
@@ -50,4 +62,38 @@
         <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        // Gọi thử SweetAlert
+        // Swal.fire('Hello world!');
+        $('.btn-delete').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Bạn có chắc thực hiện thao tác không?',
+                text: "Khi xóa thành công không thể phục hồi được",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Thực hiện XÓA!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Đã xóa thành công!',
+                        'Sản phẩm đã được xóa.',
+                        'success'
+                    )
+                    // Submit form
+                    // debugger;
+                    $(this).parent('#frmXoaSlide').submit();
+                    // $('#frmXoaSlide').submit();
+                    // $('#frmDeleteProduct').submit();
+                }
+            });
+        });
+    });
+</script>
 @endsection

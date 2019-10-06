@@ -36,6 +36,7 @@ class PagesController extends Controller
     // Trang chủ
     public function getTrangChu()
     {
+        // ip, trinh duyet, url, so luot
         return view('pages.trangchu');
     }
 

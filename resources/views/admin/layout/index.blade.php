@@ -12,6 +12,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- SweetAlert css  -->
+	<link rel="stylesheet" href="admin_asset/bower_components/sweetalert/sweetalert2.min.css">
+
     <!-- MetisMenu CSS -->
     <link href="admin_asset/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
@@ -63,7 +66,10 @@
     <!-- DataTables JavaScript -->
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-
+    
+    {{-- Sweet Alert js --}}
+    <script src="admin_asset/bower_components/sweetalert/sweetalert2.all.min.js"></script>
+    
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {

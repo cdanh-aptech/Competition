@@ -621,15 +621,15 @@ figure {
 }
 
 .intro-grid.color-1 {
-    background: #6356E5;
+    background: rgb(53, 38, 219);
 }
 
 .intro-grid.color-2 {
-    background: #6f51c7;
+    background: #016280;
 }
 
 .intro-grid.color-3 {
-    background: #A82FFC;
+    background: rgb(138, 7, 231);
 }
 
 .services {

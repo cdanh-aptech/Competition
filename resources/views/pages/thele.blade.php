@@ -223,8 +223,11 @@
     // TABS
     $(document).ready(function(){
             $('#tab_ChuDe').tabs();
+
+            // Gọi thử SweetAlert
+            // Swal.fire('Hello world!');
         });
-    
+
 </script>
 
 @endsection

@@ -154,18 +154,59 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+
+{{-- <script id="comment-template" type="text/x-lodash-template">
+    <div class="comment">
+      <div class="comment-body"><%= comment %></div>
+      <div class="commenter">
+        <p>
+          <span class="posted-by">Posted By: </span>
+          <%= commenter %>
+        </p>
+      </div>
+    </div>
+</script> --}}
 @endsection
 
 @section('script')
     <script>
-        // Load Ajax Cuộc thi
         $(document).ready(function(){
+            
+            // Load Ajax Cuộc thi
             $("#idContest").change(function(){
                 var idContest = $(this).val();
                 $.get("admin/ajax/contest/" + idContest, function(data){
                     // alert(data);
                     $("#idView").html(data);
                     
+                });
+            });
+
+            // Gọi thử SweetAlert
+            // Swal.fire('Hello world!');
+            $('.btn-delete').click(function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Bạn có chắc thực hiện thao tác không?',
+                    text: "Khi xóa thành công không thể phục hồi được",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Thực hiện XÓA!'
+                }).then((result) => {
+                    if (result.value) {
+                        Swal.fire(
+                            'Đã xóa thành công!',
+                            'Sản phẩm đã được xóa.',
+                            'success'
+                        )
+                        // Submit form
+                        // debugger;
+                        $(this).parent('#frmXoaSlide').submit();
+                        // $('#frmXoaSlide').submit();
+                        // $('#frmDeleteProduct').submit();
+                    }
                 });
             });
         });

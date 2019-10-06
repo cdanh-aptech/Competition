@@ -17,8 +17,13 @@
 		</div>
 		<div class="col-lg-2 text-left">
 			<p>
-				<small>Trực tuyến: </small> <br />
-				<small>Lượt truy cập: </small>
+				<small>Trực tuyến:
+				</small> <br />
+				<small>Lượt truy cập: 
+					{{-- <img src="http://localhost:81/Competition/analytics/index.php?module=Counter&action=show&id=1" border="0" /> --}}
+					{{-- <img src="http://localhost:81/Competition/analytics/index.php?module=ClassicCounter&action=svg&idSite=1&period=day"> --}}
+					{{-- <div id="widgetIframe"><iframe width="100%" height="200" src="http://localhost:81/Competition/analytics/index.php?module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=Live&actionToWidgetize=getSimpleLastVisitCount&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="yes" frameborder="0" marginheight="0" marginwidth="0"></iframe></div> --}}
+				</small>
 			</p>
 		</div>
 		<div class="col-lg-7 text-center">

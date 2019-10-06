@@ -54,6 +54,8 @@
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- jQuery UI css  -->
 	<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
+	<!-- SweetAlert css  -->
+	<link rel="stylesheet" href="js/sweetalert/sweetalert2.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 	
@@ -67,6 +69,22 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	
+	<!-- Matomo -->
+	<script type="text/javascript">
+		var _paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+		var u="//localhost:81/Competition/analytics/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+		})();
+  	</script>
+  	<!-- End Matomo Code -->
+  
 
 	</head>
 	<body>
@@ -98,6 +116,8 @@
 	<script src="js/jquery.easing.1.3.js"></script>
 	{{-- jQuery-UI --}}
 	<script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	{{-- Sweet Alert js --}}
+	<script src="js/sweetalert/sweetalert2.all.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
